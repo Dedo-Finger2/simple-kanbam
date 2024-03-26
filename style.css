@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-front-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%; /* Faz com que a gente possa usar o rem dividido por 10 */
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  font-size: 1.6rem; /* Equivale a 16px. 1.6 x 10 */
+  background-color: rgb(52, 221, 170);
+}
+
+a {
+  /* Remove o underline de todas as tags <a> */
+  text-decoration: none;
+}
+
+#app {
+  display: grid;
+  /* Basicamente divide o grid em dois
+        O lado da esquerda vai ocupar o máximo
+        que quiser, e o conteúdo da direita
+        vai ocupar apenas uma fração (o que sobrar).
+    */
+  grid-template-columns: max-content 1fr;
+
+  /* Preencha tudo de cima a abaixo */
+  min-height: 100vh;
+}
+
+main {
+  padding-top: 0.8rem;
+}
+
+main .inner {
+  /* Ocupe toda a altura do min-height 100vh */
+  height: 100%;
+  background-color: rgb(245, 245, 245);
+  border-top-left-radius: 3.2rem;
+  padding: 4.8rem 3.2rem;
+}
+
+nav {
+  padding: 3.2rem 2.7rem 0 3.5rem;
+}
+
+ul {
+  margin-top: 6rem;
+  /* Retira os bullet da lista */
+  list-style: none;
+
+  display: grid;
+  /* Vão entre os itens */
+  gap: 3.6rem;
+  min-width: 11.5rem;
+}
+
+li a {
+  color: aliceblue;
+
+  /* Centralizando o ícone com o texto verticalmente */
+  display: flex;
+  align-items: center;
+
+  gap: 1.6rem;
+  font-weight: 500;
+}
+
+a.active,
+a:hover {
+  color: white;
+  font-weight: 700;
+}
+
+a icon-icon {
+  font-size: 2rem;
+}
+
+/* Title avatar */
+section.title-avatar {
+  display: flex;
+  /* Deixa os dois separados um em cada canto */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 2.4rem;
+}
+
+.title-avatar > img {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  font-size: 3.2rem;
+}
+
+/* Filtro */
+section.filter {
+  margin-top: 3.2rem;
+  padding: 0 2.4rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.filter button {
+  padding: 1.2rem 3.2rem;
+  border: 0;
+  background: rgb(52, 221, 170);
+  border-radius: 0.5rem;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter button span {
+  text-shadow: 0rem 0.4rem 1.6rem rgba(22, 22, 22, 0.1);
+
+  font-size: 1.4rem;
+}
+
+.filter button ion-icon {
+  font-size: 2.4rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  background: white;
+  border: 0.07rem solid rgb(238, 238, 238);
+
+  box-shadow: 0rem 0.4rem 1.6rem rgba(22, 22, 22, 0.1);
+  border-radius: 0.8rem;
+  padding: 0 2.4rem;
+
+  /* O pai (section.filter) tem display flex
+    colocar flex 1 faz com que esse filho
+    ocupe todo o espaço do pai com o flex
+  */
+  flex: 1;
+}
+
+.input-wrapper ion-icon {
+  font-size: 2.4rem;
+}
+
+.input-wrapper input {
+  border: 0;
+  width: 100%;
+  outline: 0;
+}
+
+/* Aplica o estilo no input-wrapper
+    o estilo só será aplicado se dentro
+    do input-wrapper existir (has)
+    o atributo focus.
+    Nesse caso é um input de quem estamos
+    falando, ou seja, ele tem :focus
+*/
+.input-wrapper:has(:focus) {
+  outline: 0.1rem solid rgb(0, 0, 0);
+}
+
+.input-wrapper input::placeholder {
+  font-size: 1.6rem;
+}
+
+/* Kanban */
+section.kanban {
+  display: flex;
+  gap: 4.8rem;
+  padding-top: 3.2rem;
+}
+
+/* Todos os elementos de primeiro nível tem a mesma largura */
+section.kanban > * {
+  flex: 1;
+  padding: 2.4rem;
+}
+
+section.kanban h2 {
+  font-size: 2rem;
+  padding: 2.4rem 0;
+}
+
+/* Cards */
+.card {
+  padding: 2.4rem;
+  background: white;
+  box-shadow: 0rem 4rem 1.6rem rgba(128, 128, 128, 0.1);
+  border-radius: 0.8rem;
+
+  line-height: 130%;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+}
+
+.card p {
+  font-weight: 500;
+  font-size: 1.4rem;
+
+  margin-top: 1rem;
+}
+
+.card .tags {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  color: rgb(42, 179, 138);
+  font-weight: 500;
+}
+
+.card .tags span {
+  font-size: 1.1rem;
+  line-height: 130%;
+  background: rgba(43, 158, 124, 0.1);
+  border-radius: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
